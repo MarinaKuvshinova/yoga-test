@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  font: 1em/1.5 "Open Sans", Arial, Helvetica, sans-serif;
+  background: #fff;
+  min-width: 1200px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: none;
+  color: #555;
+}
+
+img {
+  border-style: none;
+}
+
+a {
+  text-decoration: underline;
+  color: #555;
+  outline: none !important;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  background-color: transparent;
+}
+
+input {
+  width: 100%;
+  font: 100% "Open Sans", Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+  color: #b5b5b5;
+  outline: none !important;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  border: 1px solid #d8d8d8;
+  background: #fff;
+}
+
+form, fieldset {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
+
+header, footer, article, section, nav, figure, aside {
+  display: block;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  position: relative;
+}
+
+/**HEADER**/
+/**MAIN**/
+/**FOOTER**/
