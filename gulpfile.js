@@ -4,23 +4,34 @@ const gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    merge = require('merge-stream'),
     browserSync  = require('browser-sync').create();
 
 const jsFiles=[
-    'node_modules/jquery/dist/jquery.js'
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+    'node_modules/slick-carousel/slick/slick.js'
 ]
 const cssFiles=[
+    'node_modules/magnific-popup/dist/magnific-popup.css',
+    'node_modules/slick-carousel/slick/slick.css',
     'markup/css/style.css'
+]
+const allFiles=[
+    'markup/scss/style.scss'
 ]
 
 //for css
 function styles(){
+    let cssFile = gulp.src(cssFiles, {allowEmpty:true})
+            .pipe(concat('css-files.css'));
+
     let sassFile = gulp.src('markup/scss/style.scss')
         .pipe(sass({outputStyle:'expanded'}))
         .pipe(gulp.dest('markup/css'))
         .pipe(browserSync.reload({stream:true}));
 
-    return gulp.src(cssFiles, {allowEmpty:true}, sassFile)
+    return merge(cssFile, sassFile)
         .pipe(concat('all.css'))
         .pipe(cleanCSS({
             level: 2
@@ -43,7 +54,7 @@ function watch(){
         notify: false
 
     });
-    gulp.watch(cssFiles, styles);
+    gulp.watch(allFiles, styles);
     gulp.watch(jsFiles, scripts);
     gulp.watch('./markup/*.html').on('change', browserSync.reload)
 }

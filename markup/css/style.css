@@ -1,3 +1,25 @@
+/**FONTS**/
+@font-face {
+  font-family: "FreestyleScript";
+  src: url("../fonts/freestyle-script-normal.eot");
+  src: url("../fonts/freestyle-script-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/freestyle-script-normal.woff2") format("woff2"), url("../fonts/freestyle-script-normal.woff") format("woff"), url("../fonts/freestyle-script-normal.ttf") format("truetype"), url("../fonts/freestyle-script-normal.svg#FreestyleScript") format("svg");
+}
+
+/**RESET**/
+a, #nav ul li a:not(.logo):after, .booking .form form .button, .gallery .item img, .gallery .item .mask, .slick-arrow {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.header-holder, #nav ul, .booking, .booking .holder, .booking .form form .button, .features .item .picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 html, body {
   height: 100%;
   font-size: 14px;
@@ -15,17 +37,13 @@ body {
 
 img {
   border-style: none;
+  vertical-align: top;
 }
 
 a {
   text-decoration: underline;
   color: #555;
   outline: none !important;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
 }
 
 a:hover {
@@ -40,13 +58,17 @@ input {
   width: 100%;
   font: 100% "Open Sans", Arial, Helvetica, sans-serif;
   vertical-align: middle;
-  color: #b5b5b5;
+  color: #888;
   outline: none !important;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  border: 1px solid #d8d8d8;
-  background: #fff;
+  border: 1px solid #f2f2f2;
+  background: #f2f2f2;
+  border-radius: 10px;
+  height: 50px;
+  padding: 5px 10px;
+  box-sizing: border-box;
 }
 
 form, fieldset {
@@ -64,10 +86,511 @@ figure {
   padding: 0;
 }
 
+select {
+  height: 50px;
+  width: 100%;
+  border-color: #f2f2f2;
+  background: #f2f2f2;
+  border-radius: 10px;
+}
+
 #wrapper {
   position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.holder {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /**HEADER**/
+.header {
+  background: #fff;
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+}
+
+.header-holder {
+  padding-top: 6px;
+  padding-bottom: 10px;
+  min-height: 100px;
+  box-sizing: border-box;
+}
+
+.header-holder > .logo {
+  display: none;
+}
+
+/*nav*/
+#nav {
+  position: relative;
+  width: 100%;
+}
+
+#nav ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 600;
+}
+
+#nav ul li {
+  padding: 0 14px;
+}
+
+#nav ul li:nth-child(4) {
+  width: 27%;
+  padding-top: 4px;
+  text-align: center;
+}
+
+#nav ul li a:not(.logo) {
+  position: relative;
+  display: block;
+  padding: 2px 0;
+  text-decoration: none;
+}
+
+#nav ul li a:not(.logo):after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  width: 0;
+  background: #5363db;
+  content: '';
+}
+
+#nav ul li a:not(.logo):hover, #nav ul li a:not(.logo).active {
+  color: #5363db;
+}
+
+#nav ul li a:not(.logo):hover:after, #nav ul li a:not(.logo).active:after {
+  left: calc(50% - 15px);
+  right: calc(50% - 15px);
+  width: 30px;
+}
+
 /**MAIN**/
+/*booking*/
+.booking {
+  padding: 100px 0 74px;
+  height: 700px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.booking img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  width: auto;
+  height: auto;
+  z-index: 0;
+}
+
+.booking .holder > * {
+  width: 50%;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.booking .slogan {
+  padding: 0 0 0 82px;
+  color: #fff;
+}
+
+.booking .slogan span {
+  display: block;
+}
+
+.booking .slogan span.bold {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 3.43em;
+  margin: 0 0 30px;
+}
+
+.booking .slogan span.italic {
+  letter-spacing: -3px;
+  font: 2.86em/1.15 'FreestyleScript', Arial, Helvetica, sans-serif;
+}
+
+.booking .form {
+  padding: 13px 13px 0 0;
+}
+
+.booking .form form {
+  margin: 0 0 0 auto;
+  background: #fff;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 32px 39px 35px 30px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.15);
+}
+
+.booking .form form .title {
+  display: block;
+  color: #5363db;
+  margin: 0 0 21px;
+  font-weight: 600;
+  font-size: 1.78em;
+}
+
+.booking .form form .row {
+  margin: 0 0 17px;
+}
+
+.booking .form form .row-button {
+  padding: 14px 0 0;
+}
+
+.booking .form form .button {
+  width: 170px;
+  margin: 0 0 0 auto;
+  height: 50px;
+  border: 0;
+  font-weight: bold;
+  border-radius: 8px;
+  background: #5b6ceb;
+  color: #fff;
+  padding: 0;
+  font-size: 1.14em;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+.booking .form form .button:hover {
+  background: #475bf1;
+  cursor: pointer;
+}
+
+/*program*/
+.program {
+  padding: 62px 0 50px;
+}
+
+.program-container {
+  margin: 0 -15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.program-container .item {
+  width: 50%;
+  padding: 0 15px 15px;
+  box-sizing: border-box;
+}
+
+.program-container .item-holder {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.program-container .item-holder .picture {
+  width: 270px;
+}
+
+.program-container .item-holder .picture img {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.program-container .item-holder .text {
+  padding: 41px 10px 10px 30px;
+  line-height: 1.6;
+}
+
+.program-container .item-holder .text h4 {
+  font-size: 1.42em;
+  font-weight: bold;
+  margin: 0 0 23px;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.program-container .item-holder .text p {
+  margin: 0 0 7px;
+}
+
+.program-container .item-holder .text a {
+  text-decoration: none;
+  color: #999;
+}
+
+.program-container .item-holder .text a:hover {
+  text-decoration: underline;
+}
+
+.heading {
+  text-align: center;
+  margin: 0 0 68px;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: #5363db;
+  margin: 0 0 9px;
+  font-size: 2.14em;
+  font-weight: bold;
+}
+
+h3 {
+  color: #777;
+  margin: 0;
+  font: 2.93em/1 'FreestyleScript', Arial, Helvetica, sans-serif;
+  letter-spacing: -4px;
+}
+
+/*gallery*/
+.gallery {
+  padding: 60px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery .item {
+  width: 25%;
+  box-sizing: border-box;
+  height: 350px;
+  text-align: center;
+  position: relative;
+}
+
+.gallery .item:hover .mask {
+  opacity: 1;
+}
+
+.gallery .item:hover img {
+  filter: gray;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.gallery .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery .item .mask {
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(91, 108, 235, 0.8);
+}
+
+.gallery .item .mask:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 57px;
+  height: 57px;
+  background: #fff url("../images/ico-search.png") no-repeat 50% 50%;
+  border-radius: 50%;
+  content: '';
+  transform: translate(-50%, -50%);
+}
+
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+  opacity: 1;
+}
+
+.mfp-with-zoom.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/*about*/
+.about {
+  padding: 106px 0 105px;
+}
+
+.about .holder {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.about .holder > * {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.about .about-text {
+  line-height: 1.6;
+  padding: 30px 10% 0 15px;
+}
+
+.about .about-text h2 {
+  margin: 0 0 13px;
+}
+
+.about .about-text p {
+  margin: 0;
+}
+
+.about .about-carousel {
+  height: 340px;
+  width: 50.8%;
+  margin: 0 -24px 0 -5px;
+}
+
+.about .about-carousel .slick-slide {
+  padding: 20px;
+}
+
+.about .about-carousel .slick-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  text-indent: -9999px;
+  background: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(0, -50%);
+  border: 0;
+  box-sizing: border-box;
+  z-index: 2;
+  padding: 0;
+  box-shadow: 9px 9px 9px rgba(0, 0, 0, 0.1);
+  outline: none !important;
+}
+
+.slick-arrow:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.slick-arrow:after {
+  background: url("../images/ico-arrow.png") no-repeat 50% 50%;
+  width: 12px;
+  height: 19px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slick-next {
+  left: auto;
+  right: -3px;
+}
+
+.slick-next:after {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/*features*/
+.features {
+  padding: 124px 0 0;
+  background: url("../images/img6_1.jpg") no-repeat 50% 0;
+  background-size: cover;
+}
+
+.features .holder {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.features .item {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 0 15px 55px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.14em;
+  line-height: 1.7;
+}
+
+.features .item .picture {
+  border: 2px solid #fff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  margin: 0 auto 27px;
+}
+
+.features .item .title {
+  margin: 0 0 12px;
+  min-height: 54px;
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.125em;
+  line-height: 1.55;
+  font-weight: bold;
+}
+
+.features .item p {
+  margin: 0;
+}
+
+/*shop*/
+.shop {
+  padding: 60px 0 50px;
+}
+
+.shop .holder {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shop .holder .item {
+  width: 33.33%;
+  padding: 0 15px 30px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
 /**FOOTER**/
